@@ -5,282 +5,282 @@ Document classification rules and patterns
 # Document classification rules
 # Each rule defines how to classify documents based on keywords and patterns
 CLASSIFICATION_RULES = {
-    # Financial Documents
+    # 財務書類
     "1001": {
-        "name": "Financial Statement",
+        "name": "財務諸表",
         "keywords": [
-            "financial statement", "statement of financial position",
-            "balance sheet", "income statement", "profit and loss",
-            "cash flow statement", "financial report"
+            "財務諸表", "財務報告書", "financial statement",
+            "貸借対照表", "損益計算書", "キャッシュフロー計算書",
+            "balance sheet", "income statement"
         ],
         "priority": 150,
         "category": "financial"
     },
     
     "1002": {
-        "name": "Income Statement",
+        "name": "損益計算書",
         "keywords": [
-            "income statement", "profit and loss statement", "p&l",
-            "earnings report", "revenue statement", "operating income"
+            "損益計算書", "P&L", "income statement", 
+            "profit and loss", "収益報告書", "営業利益"
         ],
         "priority": 140,
         "category": "financial"
     },
     
     "1003": {
-        "name": "Balance Sheet",
+        "name": "貸借対照表",
         "keywords": [
-            "balance sheet", "statement of financial position",
-            "assets and liabilities", "shareholders equity"
+            "貸借対照表", "balance sheet", "資産負債表",
+            "資産", "負債", "株主資本", "純資産"
         ],
         "priority": 140,
         "category": "financial"
     },
     
     "1004": {
-        "name": "Cash Flow Statement",
+        "name": "キャッシュフロー計算書",
         "keywords": [
-            "cash flow statement", "statement of cash flows",
-            "cash flow report", "operating cash flow"
+            "キャッシュフロー計算書", "cash flow statement",
+            "資金収支計算書", "現金流量計算書", "営業キャッシュフロー"
         ],
         "priority": 130,
         "category": "financial"
     },
     
     "1005": {
-        "name": "Budget Report",
+        "name": "予算報告書",
         "keywords": [
-            "budget", "budget report", "financial budget",
-            "annual budget", "budget analysis"
+            "予算", "予算報告書", "budget", "年次予算",
+            "予算分析", "予算書", "financial budget"
         ],
         "priority": 120,
         "category": "financial"
     },
     
-    # Legal Documents
+    # 法的文書
     "2001": {
-        "name": "Contract",
+        "name": "契約書",
         "keywords": [
-            "contract", "agreement", "service agreement",
-            "terms and conditions", "legal agreement", "parties agree"
+            "契約書", "合意書", "contract", "agreement",
+            "利用規約", "サービス契約", "業務委託契約", "当事者合意"
         ],
         "priority": 160,
         "category": "legal"
     },
     
     "2002": {
-        "name": "Non-Disclosure Agreement",
+        "name": "秘密保持契約書",
         "keywords": [
-            "non-disclosure agreement", "nda", "confidentiality agreement",
-            "confidential information", "proprietary information"
+            "秘密保持契約", "NDA", "機密保持契約",
+            "confidentiality", "機密情報", "秘密情報"
         ],
         "priority": 150,
         "category": "legal"
     },
     
     "2003": {
-        "name": "Terms of Service",
+        "name": "利用規約",
         "keywords": [
-            "terms of service", "terms of use", "user agreement",
-            "service terms", "website terms"
+            "利用規約", "使用条件", "terms of service",
+            "サービス規約", "ウェブサイト規約", "user agreement"
         ],
         "priority": 130,
         "category": "legal"
     },
     
-    # Business Reports
+    # 報告書類
     "3001": {
-        "name": "Annual Report",
+        "name": "年次報告書",
         "keywords": [
-            "annual report", "yearly report", "year end report",
-            "annual summary", "business review"
+            "年次報告書", "年間報告書", "annual report",
+            "年度末報告書", "年次まとめ", "事業報告書"
         ],
         "priority": 140,
         "category": "reports"
     },
     
     "3002": {
-        "name": "Monthly Report",
+        "name": "月次報告書",
         "keywords": [
-            "monthly report", "month end report", "monthly summary",
-            "performance report", "status report"
+            "月次報告書", "月間報告書", "monthly report",
+            "月末報告書", "進捗報告書", "状況報告書"
         ],
         "priority": 130,
         "category": "reports"
     },
     
     "3003": {
-        "name": "Project Report",
+        "name": "プロジェクト報告書",
         "keywords": [
-            "project report", "project status", "project summary",
-            "milestone report", "progress report"
+            "プロジェクト報告書", "project report", "プロジェクト状況",
+            "マイルストーン報告", "進捗報告", "プロジェクトサマリー"
         ],
         "priority": 120,
         "category": "reports"
     },
     
     "3004": {
-        "name": "Market Research",
+        "name": "市場調査報告書",
         "keywords": [
-            "market research", "market analysis", "industry report",
-            "market survey", "competitive analysis"
+            "市場調査", "market research", "市場分析",
+            "業界レポート", "競合分析", "マーケット調査"
         ],
         "priority": 125,
         "category": "reports"
     },
     
-    # Invoicing and Billing
+    # 請求書類
     "4001": {
-        "name": "Invoice",
+        "name": "請求書",
         "keywords": [
-            "invoice", "bill", "invoice number", "amount due",
-            "payment due", "billing", "invoice date"
+            "請求書", "invoice", "bill", "請求番号",
+            "支払い期日", "billing", "請求金額", "お支払い"
         ],
         "priority": 170,
         "category": "billing"
     },
     
     "4002": {
-        "name": "Receipt",
+        "name": "領収書",
         "keywords": [
-            "receipt", "payment receipt", "transaction receipt",
-            "proof of payment", "received payment"
+            "領収書", "receipt", "領収証", "支払い証明",
+            "入金確認書", "受領書", "支払い受領"
         ],
         "priority": 160,
         "category": "billing"
     },
     
     "4003": {
-        "name": "Purchase Order",
+        "name": "発注書",
         "keywords": [
-            "purchase order", "po number", "order request",
-            "purchase requisition", "procurement"
+            "発注書", "purchase order", "注文書", "発注依頼",
+            "購入依頼", "調達", "発注番号"
         ],
         "priority": 150,
         "category": "billing"
     },
     
     "4004": {
-        "name": "Quote",
+        "name": "見積書",
         "keywords": [
-            "quote", "quotation", "estimate", "pricing",
-            "proposal", "cost estimate"
+            "見積書", "quote", "quotation", "見積り",
+            "提案書", "価格見積", "コスト見積"
         ],
         "priority": 130,
         "category": "billing"
     },
     
-    # HR Documents
+    # 人事書類
     "5001": {
-        "name": "Employee Contract",
+        "name": "雇用契約書",
         "keywords": [
-            "employment contract", "job offer", "employment agreement",
-            "employee handbook", "job description"
+            "雇用契約書", "employment contract", "労働契約",
+            "従業員ハンドブック", "職務記述書", "内定通知書"
         ],
         "priority": 150,
         "category": "hr"
     },
     
     "5002": {
-        "name": "Payroll Report",
+        "name": "給与報告書",
         "keywords": [
-            "payroll", "salary report", "wage report",
-            "payroll summary", "employee compensation"
+            "給与報告書", "payroll", "給与明細", "賃金報告",
+            "従業員報酬", "給与計算書", "salary report"
         ],
         "priority": 140,
         "category": "hr"
     },
     
     "5003": {
-        "name": "Performance Review",
+        "name": "人事評価",
         "keywords": [
-            "performance review", "employee evaluation", "annual review",
-            "performance appraisal", "employee assessment"
+            "人事評価", "performance review", "従業員評価",
+            "年次評価", "査定", "人事考課", "employee assessment"
         ],
         "priority": 130,
         "category": "hr"
     },
     
-    # Insurance Documents
+    # 保険書類
     "6001": {
-        "name": "Insurance Policy",
+        "name": "保険証券",
         "keywords": [
-            "insurance policy", "policy number", "coverage",
-            "insurance certificate", "policy holder"
+            "保険証券", "insurance policy", "保険契約書",
+            "保険番号", "保険証明書", "契約者"
         ],
         "priority": 140,
         "category": "insurance"
     },
     
     "6002": {
-        "name": "Insurance Claim",
+        "name": "保険金請求書",
         "keywords": [
-            "insurance claim", "claim number", "claim form",
-            "damage report", "incident report"
+            "保険金請求", "insurance claim", "請求番号",
+            "事故報告書", "損害報告書", "事故証明"
         ],
         "priority": 150,
         "category": "insurance"
     },
     
-    # Data and Analytics
+    # データ・分析
     "7001": {
-        "name": "Data Export",
+        "name": "データエクスポート",
         "keywords": [
-            "data export", "database export", "data dump",
-            "exported data", "data file"
+            "データエクスポート", "data export", "データベース出力",
+            "エクスポートデータ", "データファイル", "出力データ"
         ],
         "priority": 100,
         "category": "data"
     },
     
     "7002": {
-        "name": "Analytics Report",
+        "name": "分析レポート",
         "keywords": [
-            "analytics", "data analysis", "statistics",
-            "metrics", "dashboard", "kpi"
+            "分析", "analytics", "データ分析", "統計",
+            "メトリクス", "ダッシュボード", "KPI", "指標"
         ],
         "priority": 110,
         "category": "data"
     },
     
-    # Customer Documents
+    # 顧客関連書類
     "8001": {
-        "name": "Customer Information",
+        "name": "顧客情報",
         "keywords": [
-            "customer", "client", "contact information",
-            "customer data", "client list"
+            "顧客", "customer", "クライアント", "連絡先情報",
+            "顧客データ", "顧客リスト", "取引先"
         ],
         "priority": 120,
         "category": "customer"
     },
     
     "8002": {
-        "name": "Customer Feedback",
+        "name": "顧客フィードバック",
         "keywords": [
-            "customer feedback", "survey", "review",
-            "customer satisfaction", "testimonial"
+            "顧客フィードバック", "customer feedback", "アンケート",
+            "レビュー", "顧客満足度", "お客様の声", "testimonial"
         ],
         "priority": 110,
         "category": "customer"
     }
 }
 
-# Category descriptions
+# カテゴリ説明
 CATEGORY_DESCRIPTIONS = {
-    "financial": "Financial statements, budgets, and accounting documents",
-    "legal": "Contracts, agreements, and legal documents",
-    "reports": "Business reports, analysis, and summaries",
-    "billing": "Invoices, receipts, and payment documents",
-    "hr": "Human resources and employee documents",
-    "insurance": "Insurance policies and claims",
-    "data": "Data exports and analytics reports",
-    "customer": "Customer information and feedback"
+    "financial": "財務諸表、予算、会計書類",
+    "legal": "契約書、合意書、法的文書",
+    "reports": "事業報告書、分析、要約",
+    "billing": "請求書、領収書、支払い関連書類",
+    "hr": "人事・従業員関連書類",
+    "insurance": "保険証券・保険金請求書",
+    "data": "データエクスポート・分析レポート",
+    "customer": "顧客情報・フィードバック"
 }
 
-# Default fallback rule
+# デフォルト分類ルール
 DEFAULT_RULE = {
     "code": "9999",
-    "name": "Unclassified Document",
+    "name": "未分類文書",
     "category": "general",
     "confidence": 0.1
 }

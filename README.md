@@ -1,179 +1,179 @@
-# Document Classifier & Renamer
+# 文書分類・リネームシステム
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GUI](https://img.shields.io/badge/GUI-Tkinter-orange.svg)](https://docs.python.org/3/library/tkinter.html)
 
-**An intelligent document classification and renaming system with OCR capabilities.**
+**OCR機能を備えたインテリジェント文書分類・リネームシステム**
 
-Automatically classifies PDF and CSV documents using OCR text recognition and predefined rules, then renames them with structured naming conventions.
+OCRテキスト認識と事前定義されたルールを使用してPDFやCSV文書を自動分類し、構造化された命名規則でファイル名を変更します。
 
-## 🚀 Features
+## 🚀 主な機能
 
-- **Automatic Document Classification**: Classifies documents based on content analysis
-- **OCR Text Recognition**: Extracts text from PDF documents for analysis
-- **Smart Renaming**: Generates structured filenames based on classification
-- **Batch Processing**: Process multiple files at once
-- **GUI Interface**: Easy-to-use drag-and-drop interface
-- **PDF Splitting**: Automatically splits multi-page PDFs when needed
-- **Customizable Rules**: Easily add new document types and classification rules
+- **自動文書分類**: 内容分析に基づく文書の自動分類
+- **OCRテキスト認識**: PDF文書からのテキスト抽出と分析
+- **スマートリネーム**: 分類に基づく構造化ファイル名の生成
+- **バッチ処理**: 複数ファイルの一括処理
+- **GUI インターフェース**: 使いやすいドラッグ&ドロップインターフェース
+- **PDF分割**: 必要に応じた複数ページPDFの自動分割
+- **カスタマイズ可能なルール**: 文書タイプと分類ルールの簡単追加
 
-## 📋 Supported Document Types
+## 📋 対応文書タイプ
 
-| Category | Code | Document Type | Example Output |
-|----------|------|---------------|----------------|
-| **Financial** | 1001 | Financial Statement | `1001_Financial_Statement_2024.pdf` |
-| | 1002 | Income Statement | `1002_Income_Statement_2024.pdf` |
-| | 1003 | Balance Sheet | `1003_Balance_Sheet_2024.pdf` |
-| **Legal** | 2001 | Contract | `2001_Contract_2024.pdf` |
-| | 2002 | Agreement | `2002_Agreement_2024.pdf` |
-| **Reports** | 3001 | Annual Report | `3001_Annual_Report_2024.pdf` |
-| | 3002 | Monthly Report | `3002_Monthly_Report_2024.pdf` |
-| **Invoices** | 4001 | Invoice | `4001_Invoice_2024.pdf` |
-| | 4002 | Receipt | `4002_Receipt_2024.pdf` |
+| カテゴリ | コード | 文書タイプ | 出力例 |
+|----------|------|------------|--------|
+| **財務書類** | 1001 | 財務諸表 | `1001_財務諸表_2024.pdf` |
+| | 1002 | 損益計算書 | `1002_損益計算書_2024.pdf` |
+| | 1003 | 貸借対照表 | `1003_貸借対照表_2024.pdf` |
+| **法的文書** | 2001 | 契約書 | `2001_契約書_2024.pdf` |
+| | 2002 | 合意書 | `2002_合意書_2024.pdf` |
+| **報告書** | 3001 | 年次報告書 | `3001_年次報告書_2024.pdf` |
+| | 3002 | 月次報告書 | `3002_月次報告書_2024.pdf` |
+| **請求書類** | 4001 | 請求書 | `4001_請求書_2024.pdf` |
+| | 4002 | 領収書 | `4002_領収書_2024.pdf` |
 
-## 🛠️ Installation
+## 🛠️ インストール
 
-### Prerequisites
-- Python 3.8 or higher
-- Tesseract OCR (for PDF text extraction)
+### 必要な環境
+- Python 3.8 以上
+- Tesseract OCR（PDF テキスト抽出用）
 
-### Quick Start
+### クイックスタート
 
-1. **Clone the repository**
+1. **リポジトリのクローン**
 ```bash
-git clone https://github.com/your-username/document-classifier-renamer.git
+git clone https://github.com/Ezark213/document-classifier-renamer.git
 cd document-classifier-renamer
 ```
 
-2. **Install dependencies**
+2. **依存関係のインストール**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Install Tesseract OCR**
-   - **Windows**: Download from [GitHub Tesseract releases](https://github.com/UB-Mannheim/tesseract/wiki)
+3. **Tesseract OCRのインストール**
+   - **Windows**: [GitHub Tesseract releases](https://github.com/UB-Mannheim/tesseract/wiki) からダウンロード
    - **macOS**: `brew install tesseract`
    - **Linux**: `sudo apt-get install tesseract-ocr`
 
-4. **Run the application**
+4. **アプリケーションの実行**
 ```bash
 python main.py
 ```
 
-## 📁 Project Structure
+## 📁 プロジェクト構成
 
 ```
 document-classifier-renamer/
-├── main.py                    # Main application entry point
-├── requirements.txt           # Python dependencies
-├── core/                      # Core modules
+├── main.py                    # メインアプリケーション
+├── requirements.txt           # Python依存関係
+├── core/                      # コアモジュール
 │   ├── __init__.py
-│   ├── classifier.py          # Document classification engine
-│   ├── ocr_engine.py          # OCR processing
-│   ├── pdf_processor.py       # PDF handling
-│   └── csv_processor.py       # CSV handling
-├── ui/                        # User interface
+│   ├── classifier.py          # 文書分類エンジン
+│   ├── ocr_engine.py          # OCR処理
+│   ├── pdf_processor.py       # PDF処理
+│   └── csv_processor.py       # CSV処理
+├── ui/                        # ユーザーインターフェース
 │   ├── __init__.py
-│   └── drag_drop.py           # Drag and drop GUI
-├── config/                    # Configuration files
+│   └── drag_drop.py           # ドラッグ&ドロップGUI
+├── config/                    # 設定ファイル
 │   └── classification_rules.py
-└── examples/                  # Sample documents
+└── examples/                  # サンプル文書
     ├── sample_invoice.pdf
     ├── sample_contract.pdf
     └── sample_report.pdf
 ```
 
-## 🎯 How to Use
+## 🎯 使用方法
 
-### GUI Mode (Recommended)
+### GUI モード（推奨）
 
-1. **Launch the application**
+1. **アプリケーションの起動**
    ```bash
    python main.py
    ```
 
-2. **Add documents**
-   - Drag and drop files into the application window
-   - Or use the "Select Files" button to browse
+2. **文書の追加**
+   - アプリケーションウィンドウにファイルをドラッグ&ドロップ
+   - または「ファイル選択」ボタンで参照
 
-3. **Configure settings**
-   - Set the output date format (YYYY, YYMM, etc.)
-   - Choose output directory
-   - Enable/disable automatic PDF splitting
+3. **設定の構成**
+   - 出力日付形式の設定（YYYY、YYMM など）
+   - 出力ディレクトリの選択
+   - 自動PDF分割の有効/無効
 
-4. **Process documents**
-   - Click "Classify & Rename" to start processing
-   - View results in the results tab
+4. **文書の処理**
+   - 「分類・リネーム」ボタンで処理開始
+   - 結果タブで処理結果を確認
 
-### Command Line Mode
+### コマンドラインモード
 
 ```bash
 python main.py --input /path/to/documents --output /path/to/output --batch
 ```
 
-## 🔧 Configuration
+## 🔧 設定
 
-### Adding New Document Types
+### 新しい文書タイプの追加
 
-Edit `config/classification_rules.py` to add new document types:
+`config/classification_rules.py` を編集して新しい文書タイプを追加：
 
 ```python
 CLASSIFICATION_RULES = {
     "5001": {
-        "name": "Purchase Order",
-        "keywords": ["purchase order", "PO", "order request"],
+        "name": "発注書",
+        "keywords": ["発注書", "注文書", "purchase order"],
         "priority": 100,
         "category": "procurement"
     }
 }
 ```
 
-### Customizing File Naming
+### ファイル名命名規則のカスタマイズ
 
-Modify the naming pattern in the configuration:
+設定で命名パターンを変更：
 
 ```python
 NAMING_PATTERN = "{code}_{document_type}_{date}.{extension}"
 ```
 
-## 🧪 Examples
+## 🧪 サンプル
 
-### Sample Input Documents
-The `examples/` directory contains sample documents you can use to test the system:
-- Business contract
-- Financial statement
-- Invoice
-- Report
+### サンプル入力文書
+`examples/` ディレクトリにはシステムテスト用のサンプル文書が含まれています：
+- 業務契約書
+- 財務諸表
+- 請求書
+- 報告書
 
-### Expected Output
-After processing, documents will be renamed following the pattern:
-- `input_contract.pdf` → `2001_Contract_2024.pdf`
-- `financial_doc.pdf` → `1001_Financial_Statement_2024.pdf`
+### 期待される出力
+処理後、文書は以下のパターンでリネームされます：
+- `input_contract.pdf` → `2001_契約書_2024.pdf`
+- `financial_doc.pdf` → `1001_財務諸表_2024.pdf`
 
-## 🤝 Contributing
+## 🤝 貢献
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. リポジトリをフォーク
+2. フィーチャーブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'Add amazing feature'`)
+4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+5. プルリクエストを作成
 
-## 📄 License
+## 📄 ライセンス
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+このプロジェクトはMITライセンスの下でライセンスされています - 詳細は [LICENSE](LICENSE) ファイルを参照してください。
 
-## 🆘 Support
+## 🆘 サポート
 
-- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/your-username/document-classifier-renamer/issues)
-- **Documentation**: Check the [Wiki](https://github.com/your-username/document-classifier-renamer/wiki) for detailed documentation
+- **Issues**: バグ報告や機能要求は [GitHub Issues](https://github.com/Ezark213/document-classifier-renamer/issues) まで
+- **ドキュメント**: 詳細なドキュメントは [Wiki](https://github.com/Ezark213/document-classifier-renamer/wiki) を確認
 
-## 🔗 Related Projects
+## 🔗 関連プロジェクト
 
 - [OCR Text Recognition](https://github.com/tesseract-ocr/tesseract)
-- [PyMuPDF](https://github.com/pymupdf/PyMuPDF) - PDF processing library
-- [Tkinter](https://docs.python.org/3/library/tkinter.html) - GUI framework
+- [PyMuPDF](https://github.com/pymupdf/PyMuPDF) - PDF処理ライブラリ
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) - GUIフレームワーク
 
 ---
 
-**Built with ❤️ for document management automation**
+**文書管理自動化への ❤️ を込めて開発**

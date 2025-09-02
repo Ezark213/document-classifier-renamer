@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Document Classifier & Renamer
-A generic document classification and renaming system with OCR capabilities.
+文書分類・リネームシステム
+OCR機能を備えた汎用文書分類・リネームシステム
 """
 
 import tkinter as tk
@@ -23,12 +23,12 @@ from ui.drag_drop import DropZoneFrame
 
 
 class DocumentClassifierApp:
-    """Main application class for Document Classifier & Renamer"""
+    """文書分類・リネームシステムのメインアプリケーションクラス"""
     
     def __init__(self):
-        """Initialize the application"""
+        """アプリケーションの初期化"""
         self.root = tk.Tk()
-        self.root.title("Document Classifier & Renamer")
+        self.root.title("文書分類・リネームシステム")
         self.root.geometry("1000x700")
         
         # Initialize core components
@@ -50,18 +50,18 @@ class DocumentClassifierApp:
         main_frame = ttk.Frame(self.root)
         main_frame.pack(fill='both', expand=True, padx=10, pady=10)
         
-        # Title
+        # タイトル
         title_label = ttk.Label(
             main_frame, 
-            text="Document Classifier & Renamer", 
+            text="文書分類・リネームシステム", 
             font=('Arial', 16, 'bold')
         )
         title_label.pack(pady=(0, 10))
         
-        # Description
+        # 説明
         desc_label = ttk.Label(
             main_frame,
-            text="Automatically classify and rename documents using OCR and intelligent rules",
+            text="OCRとインテリジェントルールを使用して文書を自動分類・リネームします",
             font=('Arial', 10),
             foreground='gray'
         )
@@ -71,19 +71,19 @@ class DocumentClassifierApp:
         self.notebook = ttk.Notebook(main_frame)
         self.notebook.pack(fill='both', expand=True)
         
-        # Tab 1: File Processing
+        # タブ1: ファイル処理
         self.process_frame = ttk.Frame(self.notebook)
-        self.notebook.add(self.process_frame, text="📁 File Processing")
+        self.notebook.add(self.process_frame, text="📁 ファイル処理")
         self._create_process_tab()
         
-        # Tab 2: Results
+        # タブ2: 結果
         self.result_frame = ttk.Frame(self.notebook)
-        self.notebook.add(self.result_frame, text="📊 Results")
+        self.notebook.add(self.result_frame, text="📊 結果")
         self._create_result_tab()
         
-        # Tab 3: Logs
+        # タブ3: ログ
         self.log_frame = ttk.Frame(self.notebook)
-        self.notebook.add(self.log_frame, text="📋 Logs")
+        self.notebook.add(self.log_frame, text="📋 ログ")
         self._create_log_tab()
 
     def _create_process_tab(self):
@@ -96,7 +96,7 @@ class DocumentClassifierApp:
         left_frame = ttk.Frame(paned)
         paned.add(left_frame, weight=2)
         
-        ttk.Label(left_frame, text="File Selection", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
+        ttk.Label(left_frame, text="ファイル選択", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
         
         # Drag and drop zone
         self.drop_zone = DropZoneFrame(left_frame, self._on_files_dropped)
@@ -106,12 +106,12 @@ class DocumentClassifierApp:
         button_frame = ttk.Frame(left_frame)
         button_frame.pack(fill='x', pady=(0, 10))
         
-        ttk.Button(button_frame, text="📁 Add Files", command=self._select_files).pack(side='left', padx=(0, 5))
-        ttk.Button(button_frame, text="📂 Add Folder", command=self._select_folder).pack(side='left', padx=5)
-        ttk.Button(button_frame, text="🗑️ Clear", command=self._clear_files).pack(side='left', padx=5)
+        ttk.Button(button_frame, text="📁 ファイル追加", command=self._select_files).pack(side='left', padx=(0, 5))
+        ttk.Button(button_frame, text="📂 フォルダ追加", command=self._select_folder).pack(side='left', padx=5)
+        ttk.Button(button_frame, text="🗑️ クリア", command=self._clear_files).pack(side='left', padx=5)
         
         # File list
-        ttk.Label(left_frame, text="Selected Files:").pack(anchor='w')
+        ttk.Label(left_frame, text="選択されたファイル:").pack(anchor='w')
         
         list_frame = ttk.Frame(left_frame)
         list_frame.pack(fill='both', expand=True)
@@ -127,13 +127,13 @@ class DocumentClassifierApp:
         right_frame = ttk.Frame(paned)
         paned.add(right_frame, weight=1)
         
-        ttk.Label(right_frame, text="Settings", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
+        ttk.Label(right_frame, text="設定", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
         
-        # Output settings
-        output_frame = ttk.LabelFrame(right_frame, text="Output Settings")
+        # 出力設定
+        output_frame = ttk.LabelFrame(right_frame, text="出力設定")
         output_frame.pack(fill='x', pady=(0, 10))
         
-        ttk.Label(output_frame, text="Date Format:").pack(anchor='w')
+        ttk.Label(output_frame, text="日付形式:").pack(anchor='w')
         self.date_format_var = tk.StringVar(value="YYYY")
         date_combo = ttk.Combobox(
             output_frame, 
@@ -143,19 +143,19 @@ class DocumentClassifierApp:
         )
         date_combo.pack(anchor='w', pady=5)
         
-        ttk.Label(output_frame, text="Custom Date (optional):").pack(anchor='w')
+        ttk.Label(output_frame, text="カスタム日付（任意）:").pack(anchor='w')
         self.custom_date_var = tk.StringVar()
         ttk.Entry(output_frame, textvariable=self.custom_date_var, width=15).pack(anchor='w', pady=5)
         
-        # Processing options
-        options_frame = ttk.LabelFrame(right_frame, text="Processing Options")
+        # 処理オプション
+        options_frame = ttk.LabelFrame(right_frame, text="処理オプション")
         options_frame.pack(fill='x', pady=(0, 10))
         
         self.enable_ocr_var = tk.BooleanVar(value=True)
-        ttk.Checkbutton(options_frame, text="Enable OCR", variable=self.enable_ocr_var).pack(anchor='w')
+        ttk.Checkbutton(options_frame, text="OCRを有効にする", variable=self.enable_ocr_var).pack(anchor='w')
         
         self.auto_split_var = tk.BooleanVar(value=False)
-        ttk.Checkbutton(options_frame, text="Auto-split multi-page PDFs", variable=self.auto_split_var).pack(anchor='w')
+        ttk.Checkbutton(options_frame, text="複数ページPDFを自動分割", variable=self.auto_split_var).pack(anchor='w')
         
         # Process button
         process_button_frame = ttk.Frame(right_frame)
@@ -163,7 +163,7 @@ class DocumentClassifierApp:
         
         self.process_button = ttk.Button(
             process_button_frame, 
-            text="🚀 Classify & Rename Files", 
+            text="🚀 分類・リネーム実行", 
             command=self._start_processing,
             style='Accent.TButton'
         )
@@ -178,26 +178,26 @@ class DocumentClassifierApp:
         )
         self.progress_bar.pack(fill='x', pady=(0, 5))
         
-        # Status label
-        self.status_var = tk.StringVar(value="Ready to process documents")
+        # ステータスラベル
+        self.status_var = tk.StringVar(value="文書処理の準備完了")
         ttk.Label(process_button_frame, textvariable=self.status_var).pack()
 
     def _create_result_tab(self):
         """Create the results tab"""
-        ttk.Label(self.result_frame, text="Processing Results", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
+        ttk.Label(self.result_frame, text="処理結果", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
         
         # Results table
         tree_frame = ttk.Frame(self.result_frame)
         tree_frame.pack(fill='both', expand=True)
         
-        columns = ('Original Name', 'New Name', 'Document Type', 'Confidence', 'Status')
+        columns = ('元ファイル名', '新ファイル名', '文書タイプ', '信頼度', 'ステータス')
         self.result_tree = ttk.Treeview(tree_frame, columns=columns, show='headings')
         
         for col in columns:
             self.result_tree.heading(col, text=col)
-            if col == 'Confidence':
+            if col == '信頼度':
                 self.result_tree.column(col, width=100)
-            elif col == 'Status':
+            elif col == 'ステータス':
                 self.result_tree.column(col, width=120)
             else:
                 self.result_tree.column(col, width=200)
@@ -212,13 +212,13 @@ class DocumentClassifierApp:
         result_button_frame = ttk.Frame(self.result_frame)
         result_button_frame.pack(fill='x', pady=10)
         
-        ttk.Button(result_button_frame, text="📁 Open Output Folder", command=self._open_output_folder).pack(side='left', padx=(0, 5))
-        ttk.Button(result_button_frame, text="💾 Export Results", command=self._export_results).pack(side='left', padx=5)
-        ttk.Button(result_button_frame, text="🔄 Clear Results", command=self._clear_results).pack(side='left', padx=5)
+        ttk.Button(result_button_frame, text="📁 出力フォルダを開く", command=self._open_output_folder).pack(side='left', padx=(0, 5))
+        ttk.Button(result_button_frame, text="💾 結果をエクスポート", command=self._export_results).pack(side='left', padx=5)
+        ttk.Button(result_button_frame, text="🔄 結果をクリア", command=self._clear_results).pack(side='left', padx=5)
 
     def _create_log_tab(self):
         """Create the logs tab"""
-        ttk.Label(self.log_frame, text="Processing Logs", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
+        ttk.Label(self.log_frame, text="処理ログ", font=('Arial', 12, 'bold')).pack(pady=(0, 10))
         
         # Log text area
         log_text_frame = ttk.Frame(self.log_frame)
@@ -235,8 +235,8 @@ class DocumentClassifierApp:
         log_button_frame = ttk.Frame(self.log_frame)
         log_button_frame.pack(fill='x', pady=10)
         
-        ttk.Button(log_button_frame, text="🗑️ Clear Logs", command=self._clear_log).pack(side='left', padx=(0, 5))
-        ttk.Button(log_button_frame, text="💾 Save Logs", command=self._save_log).pack(side='left', padx=5)
+        ttk.Button(log_button_frame, text="🗑️ ログクリア", command=self._clear_log).pack(side='left', padx=(0, 5))
+        ttk.Button(log_button_frame, text="💾 ログ保存", command=self._save_log).pack(side='left', padx=5)
 
     def _on_files_dropped(self, files: List[str]):
         """Handle dropped files"""
